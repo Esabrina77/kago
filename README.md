@@ -1,21 +1,60 @@
-# kaGO 🚀
+# 🚀 kaGO - Go Project Initializer
 
-**kaGO** est un outil en ligne de commande (CLI) conçu pour initialiser rapidement des environnements de travail en Go. L'objectif est de passer de l'idée au code en une seule commande, avec des structures de dossiers éprouvées.
+## 🇫🇷 Français
 
-## 📌 Vision
-L'idée est de proposer un outil similaire à `npx create-react-app` ou aux générateurs de projets Node.js, mais adapté à l'écosystème Go. 
+### Présentation
 
-kaGO permet de générer deux types de structures :
-1.  **Simple** : Pour les scripts rapides ou les exercices (main.go, go.mod).
-2.  **Web API** : Une structure complète (Architecture, Middleware, Gitignore, Tests) prête à être lancée sur le port 8080.
+**kaGO** est un outil en ligne de commande (CLI) conçu pour automatiser la création de nouveaux projets en Go. Il génère instantanément une structure de dossiers professionnelle et initialise le module Go pour vous faire gagner du temps.
 
-## 🛠️ Installation
-*À venir (via go install)*
+### Fonctionnalités
 
-## 🚀 Utilisation
-```bash
-# Pour un projet simple
-kago mon-projet --type=simple
+- **Initialisation Rapide** : Créez un projet en une seule commande.
+- **Deux Modes** :
+  - `simple` : Pour les scripts et petits outils (un seul `main.go`).
+  - `web` : Une architecture professionnelle (`cmd`, `internal`, `pkg`, `api`).
+- **Automatisation** : Lance automatiquement `go mod init`.
+- **Embarqué** : Utilise `go:embed` pour inclure les templates directement dans l'exécutable.
 
-# Pour une API Web complète
-kago mon-api --type=web
+### Utilisation
+
+**Bash**
+
+```
+ go run main.go -type=web mon-projet-api
+```
+
+---
+
+# 🇺🇸 English
+
+### Overview
+
+**kaGO** is a command-line interface (CLI) tool designed to automate the bootstrapping of new Go projects. It instantly generates a professional directory structure and initializes the Go module to save you development time.
+
+### Features
+
+- **Fast Bootstrapping** : Create a project with a single command.
+- **Two Modes** :
+- `simple`: For scripts and small utilities (single `main.go`).
+- `web`: A professional architecture (`cmd`, `internal`, `pkg`, `api`).
+- **Automation** : Automatically runs `go mod init` for you.
+- **Self-contained** : Uses `go:embed` to bundle templates within the binary.
+
+### Usage
+
+**Bash**
+
+```
+go run main.go -type=web my-api-project
+```
+
+---
+
+## 🛠 Technique / Technical Details
+
+### Architecture Decision Records (ADR)
+
+- **Language** : Go 1.21+
+- **Standard Library** : Built using `flag`, `os`, and `os/exec` to ensure zero external dependencies.
+- **Embedding** : Templates are managed via the `embed` package to allow single-binary distribution.
+- **Safety** : Includes directory existence checks to prevent accidental overwrites.
