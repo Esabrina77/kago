@@ -20,7 +20,7 @@
 **Bash**
 
 ```
-go run main.go -type=web mon-projet-api
+ go run main.go -type=web mon-projet-api
 ```
 
 ---
