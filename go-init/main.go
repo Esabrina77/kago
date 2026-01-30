@@ -25,7 +25,7 @@ func main() {
 
 	//4. Affichage  pour le debug
 
-	fmt.Printf("Initialisation du projet .... \n")
-	fmt.Printf("Nom du projet : %s \n", args[0])
-	fmt.Printf("Type de projet : %s \n", *projectType)
+	fmt.Printf("Initializing the project .... \n")
+	fmt.Printf("Name of the project : %s \n", args[0])
+	fmt.Printf("Type of project : %s \n", *projectType)
 }
