@@ -4,57 +4,64 @@
 
 ### Présentation
 
-**kaGO** est un outil en ligne de commande (CLI) conçu pour automatiser la création de nouveaux projets en Go. Il génère instantanément une structure de dossiers professionnelle et initialise le module Go pour vous faire gagner du temps.
+**kaGO** est un outil CLI qui automatise la création de vos projets Go. Plus besoin de créer manuellement vos dossiers ou de taper `go mod init` à chaque fois.
 
-### Fonctionnalités
+### 📥 Installation
 
-- **Initialisation Rapide** : Créez un projet en une seule commande.
-- **Deux Modes** :
-  - `simple` : Pour les scripts et petits outils (un seul `main.go`).
-  - `web` : Une architecture professionnelle (`cmd`, `internal`, `pkg`, `api`).
-- **Automatisation** : Lance automatiquement `go mod init`.
-- **Embarqué** : Utilise `go:embed` pour inclure les templates directement dans l'exécutable.
-
-### Utilisation
+Pour installer l'outil de manière globale sur votre machine :
 
 **Bash**
 
 ```
- go run main.go -type=web mon-projet-api
+go install github.com/Esabrina77/kago@latest
+```
+
+_(Vérifiez que votre répertoire `$GOPATH/bin` est bien présent dans votre PATH système)_ .
+
+### 🛠 Utilisation
+
+Une fois installé, utilisez simplement la commande `kago` n'importe où :
+
+**Bash**
+
+```
+# Projet simple (main.go unique)
+kago -type=simple mon-projet
+
+# Structure Web professionnelle
+kago -type=web ma-super-api
 ```
 
 ---
 
-# 🇺🇸 English
+## 🇺🇸 English
 
 ### Overview
 
-**kaGO** is a command-line interface (CLI) tool designed to automate the bootstrapping of new Go projects. It instantly generates a professional directory structure and initializes the Go module to save you development time.
+**kaGO** is a CLI tool that automates Go project bootstrapping. Stop manually creating folders and running `go mod init` for every new project.
 
-### Features
+### 📥 Installation
 
-- **Fast Bootstrapping** : Create a project with a single command.
-- **Two Modes** :
-- `simple`: For scripts and small utilities (single `main.go`).
-- `web`: A professional architecture (`cmd`, `internal`, `pkg`, `api`).
-- **Automation** : Automatically runs `go mod init` for you.
-- **Self-contained** : Uses `go:embed` to bundle templates within the binary.
-
-### Usage
+To install the tool globally on your machine:
 
 **Bash**
 
 ```
-go run main.go -type=web my-api-project
+go install github.com/Esabrina77/kago@latest
 ```
 
----
+_(Ensure your `$GOPATH/bin` directory is in your system PATH)_ .
 
-## 🛠 Technique / Technical Details
+### 🛠 Usage
 
-### Architecture Decision Records (ADR)
+Once installed, simply use the `kago` command anywhere:
 
-- **Language** : Go 1.21+
-- **Standard Library** : Built using `flag`, `os`, and `os/exec` to ensure zero external dependencies.
-- **Embedding** : Templates are managed via the `embed` package to allow single-binary distribution.
-- **Safety** : Includes directory existence checks to prevent accidental overwrites.
+**Bash**
+
+```
+# Simple project (single main.go)
+kago -type=simple my-project
+
+# Professional Web architecture
+kago -type=web my-awesome-api
+```
