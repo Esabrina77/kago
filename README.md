@@ -63,5 +63,19 @@ Once installed, simply use the `kago` command anywhere:
 kago -type=simple my-project
 
 # Professional Web architecture
-kago -type=web my-awesome-api
+kago init my-awesome-api --type=web
+
+# Add Feature Module (Controller + Service + Repository)
+cd my-awesome-api
+kago add feature users
 ```
+
+### 📦 Features Generated
+
+When running `kago add feature users`, it generates:
+
+- `internal/features/users/users_controller.go`
+- `internal/features/users/users_service.go`
+- `internal/features/users/users_repository.go`
+
+---

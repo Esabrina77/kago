@@ -28,10 +28,11 @@ func AddFeature(projectDir, featureName string) error {
 	// Basic capitalization: auth -> Auth
 	capitalized := strings.ToUpper(featureName[:1]) + featureName[1:]
 
-	// 4. Generate multiple files (Controller + Service)
+	// 4. Generate multiple files (Controller + Service + Repository)
 	files := map[string]string{
-		"controller.tmpl": fmt.Sprintf("%s_controller.go", featureName),
-		"service.tmpl":    fmt.Sprintf("%s_service.go", featureName),
+		"module/controller.tmpl": fmt.Sprintf("%s_controller.go", featureName),
+		"module/service.tmpl":    fmt.Sprintf("%s_service.go", featureName),
+		"module/repository.tmpl": fmt.Sprintf("%s_repository.go", featureName),
 	}
 
 	for tmplName, fileName := range files {

@@ -54,7 +54,7 @@ func createSimpleStructure(projectName string) error {
 	if err := os.MkdirAll(projectName, 0755); err != nil {
 		return err
 	}
-	return generateFile(projectName, "main.go", "simple.tmpl")
+	return generateFile(projectName, "main.go", "project/simple/main.go.tmpl")
 }
 
 func createWebStructure(projectName string) error {
@@ -79,7 +79,7 @@ func createWebStructure(projectName string) error {
 
 	// We map the template "web_main.tmpl" to "cmd/main.go"
 	// But generateFile takes relative path from project root? Yes.
-	return generateFile(projectName, filepath.Join("cmd", "main.go"), "web_main.tmpl")
+	return generateFile(projectName, filepath.Join("cmd", "main.go"), "project/web/main.go.tmpl")
 }
 
 func generateFile(projectDir, deployPath, templateName string) error {

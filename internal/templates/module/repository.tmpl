@@ -1,0 +1,17 @@
+package modules
+
+type {{.FeatureName}}Repository interface {
+	FindByID(id string) (string, error)
+}
+
+type {{.FeatureLowercase}}Repository struct {
+	// Database connection could be here
+}
+
+func New{{.FeatureName}}Repository() {{.FeatureName}}Repository {
+	return &{{.FeatureLowercase}}Repository{}
+}
+
+func (r *{{.FeatureLowercase}}Repository) FindByID(id string) (string, error) {
+	return "mock data", nil
+}
