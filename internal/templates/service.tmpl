@@ -1,0 +1,17 @@
+package modules
+
+type {{.FeatureName}}Service interface {
+	DoBusinessLogic() string
+}
+
+type {{.FeatureLowercase}}Service struct {
+	// Add repository here if needed
+}
+
+func New{{.FeatureName}}Service() {{.FeatureName}}Service {
+	return &{{.FeatureLowercase}}Service{}
+}
+
+func (s *{{.FeatureLowercase}}Service) DoBusinessLogic() string {
+	return "Hello from {{.FeatureName}} Service!"
+}

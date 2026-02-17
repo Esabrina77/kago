@@ -27,6 +27,10 @@ Example:
 			fmt.Printf("❌ Error: %v\n", err)
 			os.Exit(1)
 		}
+
+		fmt.Println("\n👉 Next steps:")
+		fmt.Printf("  cd %s\n", projectName)
+		fmt.Println("  kago add feature [name]")
 	},
 }
 
