@@ -1,0 +1,25 @@
+package {{.PackageName}}
+
+import (
+    "net/http"
+)
+
+// {{.FeatureName}}Handler handles HTTP requests for {{.FeatureName}}.
+type {{.FeatureName}}Handler struct {
+    service {{.FeatureName}}Service
+}
+
+// New{{.FeatureName}}Handler creates a new {{.FeatureName}}Handler.
+func New{{.FeatureName}}Handler(service {{.FeatureName}}Service) *{{.FeatureName}}Handler {
+    return &{{.FeatureName}}Handler{service: service}
+}
+
+// HandleGet handles GET requests.
+func (h *{{.FeatureName}}Handler) HandleGet(w http.ResponseWriter, r *http.Request) {
+    w.Write([]byte("Hello from {{.FeatureName}}!"))
+}
+
+// {{.FeatureName}}Service defines the business logic for {{.FeatureName}}.
+type {{.FeatureName}}Service interface {
+    DoSomething() error
+}

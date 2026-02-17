@@ -8,21 +8,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var (
-	// Flags
-	projectType string
-)
-
-// rootCmd represents the base command when called without any subcommands
-var rootCmd = &cobra.Command{
-	Use:   "kago",
-	Short: "kaGO is a professional Go project bootstrapper",
-	Long: `kaGO helps you bootstrap Go applications with a clean architecture.
-It allows you to initialize projects and generate code components.`,
-	// Uncomment the following line if your bare application
-	// has an action associated with it:
-	// Run: func(cmd *cobra.Command, args []string) { },
-}
+var projectType string
 
 // initCmd represents the init command
 var initCmd = &cobra.Command{
@@ -35,21 +21,13 @@ Example:
 	Run: func(cmd *cobra.Command, args []string) {
 		projectName := args[0]
 
+		fmt.Printf("Initialising %s project: %s\n", projectType, projectName)
 		// Call our generator logic
 		if err := generator.GenerateProject(projectName, projectType); err != nil {
 			fmt.Printf("❌ Error: %v\n", err)
 			os.Exit(1)
 		}
 	},
-}
-
-// Execute adds all child commands to the root command and sets flags appropriately.
-// This is called by main.main(). It only needs to happen once to the rootCmd.
-func Execute() {
-	err := rootCmd.Execute()
-	if err != nil {
-		os.Exit(1)
-	}
 }
 
 func init() {
