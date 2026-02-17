@@ -1,17 +1,27 @@
-package modules
+package services
+
+import (
+	"{{.ModulePath}}/internal/repositories"
+)
 
 type {{.FeatureName}}Service interface {
 	DoBusinessLogic() string
 }
 
 type {{.FeatureLowercase}}Service struct {
-	// Add repository here if needed
+	repo repositories.{{.FeatureName}}Repository
 }
 
-func New{{.FeatureName}}Service() {{.FeatureName}}Service {
-	return &{{.FeatureLowercase}}Service{}
+func New{{.FeatureName}}Service(repo repositories.{{.FeatureName}}Repository) {{.FeatureName}}Service {
+	return &{{.FeatureLowercase}}Service{
+		repo: repo,
+	}
 }
 
 func (s *{{.FeatureLowercase}}Service) DoBusinessLogic() string {
+	_, err := s.repo.FindByID("1")
+	if err != nil {
+		return "Error"
+	}
 	return "Hello from {{.FeatureName}} Service!"
 }

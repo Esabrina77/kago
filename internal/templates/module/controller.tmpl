@@ -1,15 +1,17 @@
-package modules
+package controllers
 
 import (
 	"encoding/json"
 	"net/http"
+
+	"{{.ModulePath}}/internal/services"
 )
 
 type {{.FeatureName}}Controller struct {
-	service {{.FeatureName}}Service
+	service services.{{.FeatureName}}Service
 }
 
-func New{{.FeatureName}}Controller(service {{.FeatureName}}Service) *{{.FeatureName}}Controller {
+func New{{.FeatureName}}Controller(service services.{{.FeatureName}}Service) *{{.FeatureName}}Controller {
 	return &{{.FeatureName}}Controller{
 		service: service,
 	}
