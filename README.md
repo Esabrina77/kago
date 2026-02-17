@@ -13,7 +13,7 @@ Pour installer l'outil de manière globale sur votre machine :
 **Bash**
 
 ```
-go install github.com/Esabrina77/kago@latest
+go install github.com/Esabrina77/kago/cmd/kago@latest
 ```
 
 _(Vérifiez que votre répertoire `$GOPATH/bin` est bien présent dans votre PATH système)_ .
@@ -26,10 +26,10 @@ Une fois installé, utilisez simplement la commande `kago` n'importe où :
 
 ```
 # Projet simple (main.go unique)
-kago -type=simple mon-projet
+kago init mon-projet --type=simple
 
 # Structure Web professionnelle
-kago -type=web ma-super-api
+kago init ma-super-api --type=web
 ```
 
 ---
@@ -47,7 +47,7 @@ To install the tool globally on your machine:
 **Bash**
 
 ```
-go install github.com/Esabrina77/kago@latest
+go install github.com/Esabrina77/kago/cmd/kago@latest
 ```
 
 _(Ensure your `$GOPATH/bin` directory is in your system PATH)_ .
@@ -60,7 +60,7 @@ Once installed, simply use the `kago` command anywhere:
 
 ```
 # Simple project (single main.go)
-kago -type=simple my-project
+kago init my-project --type=simple
 
 # Professional Web architecture
 kago init my-awesome-api --type=web
@@ -74,8 +74,8 @@ kago add feature users
 
 When running `kago add feature users`, it generates:
 
-- `internal/features/users/users_controller.go`
-- `internal/features/users/users_service.go`
-- `internal/features/users/users_repository.go`
+- `internal/controllers/users_controller.go`
+- `internal/services/users_service.go`
+- `internal/repositories/users_repository.go`
 
 ---
