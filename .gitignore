@@ -1,1 +1,13 @@
-internal/*
+# Binaries
+bin/
+dist/
+*.exe
+
+# Modules
+vendor/
+
+# IDEs
+.vscode/
+.idea/
+
+personal/
